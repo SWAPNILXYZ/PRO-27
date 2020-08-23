@@ -1,66 +1,54 @@
-
+var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
+var packageBody,ground
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-const Constraint = Matter.Constraint;
+
 function preload()
 {
 	
 }
 
-
 function setup() {
- 
 	createCanvas(800, 700);
+
 
 	engine = Engine.create();
 	world = engine.world;
 
 	//Create the Bodies Here.
-    roof = new Ceiling(400,300,300,20);
-    
-    bob1 = new Bob(400,600,30,30);
-    bob2 = new Bob(340,600,30,30);
-    bob3 = new Bob(460,600,30,30);
-    bob4 = new Bob(520,600,30,30);
-    bob5 = new Bob(280,600,30,30);
-    
-    rope1 = new Rope(bob1.body,roof.body,-2,0);
-    rope2 = new Rope(bob2.body,roof.body,-60,0);
-    rope3 = new Rope(bob3.body,roof.body,60,0);
-    rope4 = new Rope(bob4.body,roof.body,120,0);
-    rope5 = new Rope(bob5.body,roof.body,-120,0);
+	
+	ground = new Ground(400,500,width,10);
+
+	paper = new Paper(100,100,20,20);
+	box = new Dustbin(595,200,15,100);
+	box2 = new Dustbin(650,300,100,15);
+	box3 = new Dustbin(705,200,15,100);
+
 	Engine.run(engine);
   
 }
- 
+
 
 function draw() {
   rectMode(CENTER);
-  background("white");
-
-  rope1.display();
-  rope2.display();
-  rope3.display();
-  rope4.display();
-  rope5.display();
+  background("black");
  
-  roof.display();
-  bob1.display();
-  bob2.display();
-  bob3.display();
-  bob4.display();
-  bob5.display();
+
+ 
+  paper.display();
+  box.display();
+  box2.display();
+  box3.display();
+  ground.display();
   drawSprites();
  
 }
-
+keyPressed();
 function keyPressed(){
-	if (keyCode === LEFT_ARROW){
-		Body.applyForce(bob5.body,bob5.body.position,{x:-0.2,y:0});
+	if (keyCode === UP_ARROW){
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:0.04,y:-0.07});
 	}
 }
-
-
 
