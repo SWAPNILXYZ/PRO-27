@@ -1,54 +1,77 @@
-var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
-var packageBody,ground
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
-const Body = Matter.Body;
+var database;
+var back_img;
+var gameState =0;
+var playerCount = 0;
+var allPlayers;
 
-function preload()
-{
-	
+var player, form,game;
+var player1,player2;
+var players;
+var fruits;
+var fruitGroup;
+var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
+var player_img;
+
+
+function preload(){
+  back_img = loadImage("images/jungle.jpg");
+  player_img = loadImage("images/basket2.png");
+  fruit1_img = loadImage("images/apple2.png");
+  fruit2_img = loadImage("images/banana2.png");
+  fruit3_img = loadImage("images/melon2.png");
+  fruit4_img = loadImage("images/orange2.png");
+  fruit5_img = loadImage("images/pineapple2.png");
+  fruitGroup = new Group();
+}
+function setup() {
+  createCanvas(1000, 600);
+  database = firebase.database();
+  game = new Game();
+  game.getState();
+  game.start();
+  
 }
 
-function setup() {
-	createCanvas(800, 700);
-
-
-	engine = Engine.create();
-	world = engine.world;
-
-	//Create the Bodies Here.
-	
-	ground = new Ground(400,500,width,10);
-
-	paper = new Paper(100,100,20,20);
-	box = new Dustbin(595,200,15,100);
-	box2 = new Dustbin(650,300,100,15);
-	box3 = new Dustbin(705,200,15,100);
-
-	Engine.run(engine);
+function draw() {
+  
+  background(back_img);
+ 
+   if (playerCount === 2) {
+     game.update(1);
+   }
+   if (gameState === 1) {
+     clear(); 
+     game.play();
+   }
+   if (gameState === 2) {
+    
+     game.end();
+   }
+  
+    
   
 }
 
 
-function draw() {
-  rectMode(CENTER);
-  background("black");
- 
 
- 
-  paper.display();
-  box.display();
-  box2.display();
-  box3.display();
-  ground.display();
-  drawSprites();
- 
-}
-keyPressed();
-function keyPressed(){
-	if (keyCode === UP_ARROW){
-		Matter.Body.applyForce(paper.body,paper.body.position,{x:0.04,y:-0.07});
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

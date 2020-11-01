@@ -1,20 +1,41 @@
-<!DOCTYPE html>
-  <html lang="">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Matter JS BoilerPlate</title>
-      <style> body {padding: 0; margin: 0;} </style>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-      <script src="p5.play.js"></script>
-      <script src="matter.js"></script>
-      <script src="sketch.js"></script>
-      <script src="ground.js"></script>
-      <script src="dustbin.js"></script>
-      <script src="p.js"></script>
-      
-    </head>
-    <body>
-    </body>
-  </html>
+<!DOCTYPE html><html lang="en"><head>
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="libraries/matter.js"></script>
+    <script src="libraries/p5.play.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+ 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBawM1pW3je-F9WQ-CE9OyKC7JoacS1ahE",
+    authDomain: "c39-fruitcatcher-226ae.firebaseapp.com",
+    databaseURL: "https://c39-fruitcatcher-226ae.firebaseio.com",
+    projectId: "c39-fruitcatcher-226ae",
+    storageBucket: "c39-fruitcatcher-226ae.appspot.com",
+    messagingSenderId: "136800575722",
+    appId: "1:136800575722:web:75a9890877f40e91587793"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <!--Add Your JS files here -->
+    <script src="js/player.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/game.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  
+
+</body></html>
